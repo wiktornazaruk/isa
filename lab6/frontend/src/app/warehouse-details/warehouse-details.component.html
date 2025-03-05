@@ -1,0 +1,20 @@
+<div *ngIf="warehouse">
+  <h2>Warehouse <label for="Warehouse Name">{{warehouseName}}</label></h2>
+  <button (click)="navigateToAddProduct()">Add Product</button>
+  <div>
+    <p><strong>Name:</strong> {{warehouse.name}}</p>
+    <p><strong>Location:</strong> {{warehouse.location}}</p>
+  </div>
+  <div *ngIf="filteredProducts.length > 0">
+    <p><strong>Products:</strong></p>
+    <ul>
+      <li *ngFor="let product of filteredProducts">
+        {{ product.name }}
+        <button (click)="navigateToProductDetails(product.name)">Details</button>
+        <button (click)="navigateToEditProduct(product.name)">Edit</button>
+        <button (click)="deleteProduct(product.name)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<p *ngIf="!warehouse">Fetching warehouse details...</p>

@@ -1,0 +1,119 @@
+# Warehouse Management System Endpoints
+
+# Ports:
+# gateway-api: 8090
+# warehouse-service: 8091
+# product-service: 8092
+
+### Warehouse Endpoints
+
+# Create Warehouse 1
+PUT http://localhost:8090/api/warehouses
+Content-Type: application/json
+
+{
+  "name": "w1",
+  "location": "l1"
+}
+###
+
+# Create Warehouse 2
+PUT http://localhost:8090/api/warehouses
+Content-Type: application/json
+
+{
+  "name": "w2",
+  "location": "l2"
+}
+###
+
+# Create Warehouse 3
+PUT http://localhost:8090/api/warehouses
+Content-Type: application/json
+
+{
+  "name": "w3",
+  "location": "l3"
+}
+###
+
+# Read all Warehouses
+GET http://localhost:8090/api/warehouses
+###
+
+# Read specific Warehouse
+GET http://localhost:8090/api/warehouses/w1
+###
+
+# Update specific Warehouse
+PATCH http://localhost:8090/api/warehouses/w1
+Content-Type: application/json
+
+{
+    "name": "new_name",
+    "location": "new_location"
+}
+###
+
+# Delete specific Warehouse
+DELETE http://localhost:8090/api/warehouses/new_name
+
+### Product Endpoints
+
+# Create Product 1
+PUT http://localhost:8090/api/products
+Content-Type: application/json
+
+{
+  "name": "p1",
+  "price": 100.00,
+  "quantity": 10,
+  "category": "c1",
+  "warehouseName": "w1"
+}
+###
+
+# Create Product 2
+PUT http://localhost:8090/api/products
+Content-Type: application/json
+
+{
+  "name": "p2",
+  "price": 200.00,
+  "quantity": 20,
+  "category": "c2",
+  "warehouseName": "w2"
+}
+###
+
+# Get All Products
+GET http://localhost:8090/api/products
+
+###
+
+# Get Product by name
+GET http://localhost:8090/api/products/p1
+
+###
+
+# Update Product
+PATCH http://localhost:8090/api/products/p1
+Content-Type: application/json
+
+{
+  "name": "pc1",
+  "price": 4200,
+  "quantity": 69,
+  "category": "electronics",
+  "warehouseName": "w2"
+}
+
+###
+
+# Get the product after update
+GET http://localhost:8090/api/products/pc1
+
+###
+
+# Delete Product
+DELETE http://localhost:8090/api/products/hjbjh

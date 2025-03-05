@@ -1,0 +1,51 @@
+<h2>Update product <label>{{productName}}</label></h2>
+<form *ngIf="product">
+  <div class="form-group">
+    <label for="name">Set new name:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      [(ngModel)]="product.name"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="price">Set new price:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      name="price"
+      [(ngModel)]="product.price"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="quantity">Set new quantity:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="quantity"
+      name="quantity"
+      [(ngModel)]="product.quantity"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="category">Set new category:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="category"
+      name="category"
+      [(ngModel)]="product.category"
+      required
+    />
+  </div>
+  <button type="button" class="btn btn-primary" (click)="updateProduct()">
+    Submit
+  </button>
+</form>
+<p *ngIf="!product">Fetching product details...</p>

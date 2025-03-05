@@ -1,0 +1,16 @@
+h2 {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+span{
+    margin-right: 8px;
+}
+
+button {
+    margin: 0 8px 0 0;
+}
+
+li{
+    margin-bottom: 8px;
+}

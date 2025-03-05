@@ -1,0 +1,46 @@
+services:
+  gateway-api:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    depends_on:
+      - warehouse-service
+      - product-service
+    networks:
+      - app-network
+
+  warehouse-service:
+    build:
+      context: ./warehouse-service
+      dockerfile: Dockerfile
+    ports:
+      - "8091:8091"
+    networks:
+      - app-network
+
+  product-service:
+    build:
+      context: ./product-service
+      dockerfile: Dockerfile
+    ports:
+      - "8092:8092"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - gateway-api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+

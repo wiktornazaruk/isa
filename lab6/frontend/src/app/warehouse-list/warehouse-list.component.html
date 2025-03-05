@@ -1,0 +1,10 @@
+<h2>Warehouses</h2>
+<button (click)="navigateToAddWarehouse()">Add Warehouse</button>
+<ul>
+  <li *ngFor="let warehouse of warehouses">
+    <span>{{ warehouse.name }}</span>
+    <button (click)="navigateToWarehouseDetails(warehouse.name)">Details</button>
+    <button (click)="navigateToEditWarehouse(warehouse.name)">Edit</button>
+    <button (click)="deleteWarehouse(warehouse.name)">Delete</button>
+  </li>
+</ul>
